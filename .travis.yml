@@ -11,7 +11,7 @@ env:
   - secure: UT7kl3YgQdI2W8mxNjMPB7XrFSWPoJZopj1dRHRBimx9nfMYh3qLHTfAsP2gzfAYR/Bh64KPzB9gq4L79qjsvI71+sHyf7kJACKdIcd5tbWuP8YBxxAZi7iZlSeh/KbvmnYD+g+r8lOvHS0Wv3MCFUS5WEHbSkk+eQrK5A8DceqmW3QTyPJqdrYfk0EhiIMc9vrsjU8w2yrWAb+EpG4Snmtrd23BzdEHmvVQIvto7b0/IpQz9t1GevxFkkyaDfQAR3omTo4KVdu7s6WwdxiFFA9sUHN1LppdO7fFVVl8BMB+rAT0Icgcf4e9p0cYQxBME/NdUSFY39PhzjYVqcF3N+B0XRVUArYrPxXw23kAlGrgHoT+Aa+Iju/JHD+tOax5V3g+OeSjv1nUDRFgZTamwq2F+r/8f60fqFs6bFLo7azchN03wubXJ5hndooF0Xb5g54lbYb1gr3zbfl/HOxv5Hnhw6DCmVGPxhL6M5T6+ZTN6t5B0r2xqWndDYEFTO+qMTov6ej4zIg7Dzz6UXEwrFnhNpLUkiWgsBC5fTP5EejdLlltbzZlTGItA9KWTqUML+2jzgGNQMkS4af4pRGlYPmhssFkDwJDoRvGynkCWI/7Yfrf7Vhh/ON9g4Xio/BBEoaaq/HDl2I+OD+e9GSJ5RTXqW9dPvD2MKd7JpfG0nw=
 after_success:
 - bash <(curl -s https://codecov.io/bash)
-- docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH
   ; fi`
 - export CONFIG=revitbaby/piggymetrics-config
